@@ -15,6 +15,45 @@ a {
   box-sizing: border-box;
 }
 
+i {
+  background-position: center;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
+i.bold {
+  background-image: url(/icons/type-bold.svg);
+}
+
+i.italic {
+  background-image: url(/icons/type-italic.svg);
+}
+
+i.underline {
+  background-image: url(/icons/type-underline.svg);
+}
+
+i.link {
+  background-image: url(/icons/link.svg);
+}
+
+i.list {
+  background-image: url(/icons/list-ol.svg);
+}
+
+i.list-ul {
+  background-image: url(/icons/list-ul.svg);
+}
+
+i.h1 {
+  background-image: url(/icons/type-h1.svg);
+}
+
+i.h2 {
+  background-image: url(/icons/type-h2.svg);
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

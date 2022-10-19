@@ -90,12 +90,10 @@ const Markdown = () => {
         <div className={styles.markdown48}>
           <article>
             <header>
-              <p class={styles.markdownTime}>
-                <time datetime={header.pubDate}>{getFormattedDate(header.pubDate)}</time>
+              <p className={styles.markdownTime}>
+                <time dateTime={header.pubDate}>{getFormattedDate(header.pubDate)}</time>
               </p>
-              <h1
-                class={styles.markdownTitle}
-              >
+              <h1 className={styles.markdownTitle}>
                 {header.title}
               </h1>
               {header.image && (
@@ -103,8 +101,8 @@ const Markdown = () => {
                   <Image
                     src={header.image}
                     className={styles.markdownImage}
-                    width={400}
-                    height={150}
+                    width={500}
+                    height={180}
                   />
                 </div>
               )}

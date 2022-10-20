@@ -119,15 +119,36 @@
 }
 
 .downloadButton {
-  align-items: center;
   cursor: pointer;
+}
+
+.downloadButtonWrapper {
+  align-items: center;
   display: flex;
+  justify-content: flex-end;
+  gap: 12px;
   margin: 16px 0 32px;
-  margin-left: auto;
+}
+
+.downloadButtonWrapper span {
+  font-size: 14px;
 }
 
 .downloadButton span {
   margin-right: 4px;
+}
+
+.fileName {
+  position: relative;
+}
+
+.fileName::after {
+  content: '.md';
+  position: absolute;
+  top: 3px;
+  right: .5em;
+  font-size: 14px;
+  color: rgb(212, 212, 212);
 }
 
 .copied {

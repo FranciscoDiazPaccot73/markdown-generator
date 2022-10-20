@@ -54,9 +54,18 @@ export const addTextFormat = (element, format) => {
 		element.value = x.slice(0, curPos) + newEl.chars + x.slice(curPos);
 	} else if (format !== 'link') {
 		const chars = format === 'bold' ? '**' : '*';
-		element.value = x.slice(0, curPos) + chars + x.slice(curPos) + chars;
+		const selectedValue = x.slice(curPos, endPos)
+		element.value = x.slice(0, curPos) + chars + selectedValue + chars + x.slice(endPos);
 	}
 
 	element.focus();
 	element.setSelectionRange(curPos + newEl.slice, curPos + newEl.slice);
+}
+
+export const getExtension = (input) => {
+	const output = input.substr(0, input.lastIndexOf('.')) || input;
+
+	if (output.includes('.')) return getExtension(output)
+
+	return output + '.md'
 }

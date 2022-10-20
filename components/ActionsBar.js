@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { addTextFormat } from '../utils';
 
 import styles from '../styles/Home.module.css';
@@ -26,7 +28,7 @@ const ActionsBar = ({ currentText, copyTextRef, textAreaRef }) => {
       <div onClick={handleText}><i id="list-ul" className='list-ul' /></div>
       <div onClick={handleText}><i id="link" className='link' /></div>
       <div style={{marginLeft: "auto" }} onClick={handleCopy}><i className='copy' /></div>
-      <a href="/#footer"><i className='question' /></a>
+      <Link href="/#footer"><a><i className='question' /></a></Link>
     </div>
   )
 }

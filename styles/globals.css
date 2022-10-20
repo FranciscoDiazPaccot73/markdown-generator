@@ -4,6 +4,15 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  color-scheme: dark;
+}
+body {
+  color: white;
+  background: black;
 }
 
 a {
@@ -54,12 +63,10 @@ i.h2 {
   background-image: url(/icons/type-h2.svg);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+i.question {
+  background-image: url(/icons/type-question.svg);
+}
+
+i.copy {
+  background-image: url(/icons/copy.svg);
 }

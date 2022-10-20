@@ -17,13 +17,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <strong>Markdown Generator</strong>
+          <strong>Markdown File Generator</strong>
         </h1>
 
         <Markdown />
       </main>
 
-      <footer className={styles.footer}>
+      <footer className={styles.footer} id="footer">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"

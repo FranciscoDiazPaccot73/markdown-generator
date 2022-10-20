@@ -24,12 +24,12 @@ const Preview = ({ text }) => {
           {header.title}
         </h1>
         {header.image && (
-          <div>
+          <div className={styles.markdownImage}>
             <Image
               src={header.image}
-              className={styles.markdownImage}
               width={500}
               height={180}
+              layout="responsive"
             />
           </div>
         )}

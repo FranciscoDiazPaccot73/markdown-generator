@@ -80,10 +80,12 @@ const Markdown = () => {
           Descargar File
         </button>
       </div>
-      <div className={`${styles.markdown48} ${styles.markdownPreview}`}>
-        <span className={styles.markdownPreviewBadge}>LIVE PREVIEW</span>
-        <Preview text={currentText} />
-      </div>
+      <section className={`${styles.markdown48} ${styles.markdownPreview}`}>
+        <div satyle={{ position: "relative", width: "100%", height: "100%" }}>
+          <span className={styles.markdownPreviewBadge}>LIVE PREVIEW</span>
+          <Preview text={currentText} />
+        </div>
+      </section>
     </div>
   )
 }

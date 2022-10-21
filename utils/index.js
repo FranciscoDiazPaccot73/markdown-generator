@@ -44,6 +44,8 @@ export const INITIAL_DATA = {
 	}
 }
 
+export const INITIAL_FILE_NAME = 'markdown-generator.md';
+
 export const HEADER_NAMES = {
 	title: 'Title',
 	image: "Image URL",

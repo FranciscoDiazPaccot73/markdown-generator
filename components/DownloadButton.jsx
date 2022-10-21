@@ -1,11 +1,9 @@
 
 import { useState } from 'react';
 
-import { getExtension } from '../utils';
+import { getExtension, INITIAL_FILE_NAME } from '../utils';
 
 import styles from '../styles/Home.module.css';
-
-const INITIAL_FILE_NAME = 'markdown-generator.md';
 
 const DownloadButton = ({ currentText }) => {
   const [fileName, setFileName] = useState(INITIAL_FILE_NAME);

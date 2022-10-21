@@ -1,8 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+<img src="/markdown.png" alt="drawing" width="80"/>
+</div>
 
-## Getting Started
+# Markdown Generator
 
-First, run the development server:
+## Install
+
+If you’ve never used git before, please take a moment to familiarize yourself with [what it is and how it works.](https://git-scm.com/book/en/v2) To install this project, you’ll [need to have git installed and set up](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your local dev environment.
+
+First fork this project and then install it by running the following command.
+
+```bash
+git clone <link>
+```
+
+This will create a directory called **markdown-generator** and download the contents of this repo to it.
+
+
+## Usage
+
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +37,12 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Contribute
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Please refer to the contributing.md file for information about how to get involved. We welcome issues, questions, and pull requests.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the terms of the MIT open source license. Please refer to **[LICENSE](https://github.com/FranciscoDiazPaccot73/markdown-generator/blob/main/LICENCE)** for the full terms.

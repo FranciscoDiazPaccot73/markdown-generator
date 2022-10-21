@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/markdown.png" alt="Markdown Generator Logo" width="80"/>
+<img src="https://i.ibb.co/cbTqWZK/markdown.png" alt="Markdown Generator Logo" width="80"/>
 </div>
 
 # Markdown Generator

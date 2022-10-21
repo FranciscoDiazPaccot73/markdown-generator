@@ -50,6 +50,13 @@ export const HEADER_NAMES = {
 	pubDate: "Date"
 }
 
+export const META_TAGS = {
+	title: 'Simple Markdown Generator',
+	description: "A simple way to create and download a .md file.",
+	logoUrl: "https://i.ibb.co/cbTqWZK/markdown.png",
+	url: 'https://markdown-generator.vercel.app'
+}
+
 export const SAMPLE_TEXT = '# Markdown h1\n## Markdown h2 \n \n Simple plain text.\n\n Leave two spaces at the end of a line to go to the line.\n\n Attributs: *italic*, **bold** \n\n ## Make:\n\n * a\n * list\n\n Link with placeholder text: *[Medium](https://www.medium.com)* \n\n To use a simple link, just type it: https://www.medium.com/ \n\n ## Some extra documentation: \n\n > [MARKDOWN BASICS](https://www.markdownguide.org/basic-syntax/) \n \n > [Customize Markdown](https://help.start.gg/en/articles/1987102-customizing-text-with-markdown) ';
 
 export const addTextFormat = (element, format) => {

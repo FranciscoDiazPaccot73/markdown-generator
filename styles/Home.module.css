@@ -86,10 +86,12 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-}
-
-.title {
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  display: flex;
 }
 
 .headerInfo {
@@ -357,7 +359,9 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
   }
-
+  .title {
+    flex-direction: column;
+  }
   .markdown48 {
     width: 100%;
   }
@@ -365,10 +369,10 @@ input:checked + .slider:before {
 
 @media (max-width: 768px) {
   .main {
-    padding: 4em 1em;
+    padding: 2em 1em;
   }
   .title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .headerInfoTitle {
     padding: 0 12px;

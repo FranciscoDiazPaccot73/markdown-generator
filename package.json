@@ -2,6 +2,12 @@
   "name": "markdown-generator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://markdown.franciscodiazpaccot.dev",
+  "author": {
+    "name": "Francisco Diaz Paccot",
+    "email": "fran.diazpaccot@gmail.com",
+    "url": "https://www.franciscodiazpaccot.dev/"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -87,3 +87,9 @@ export const getExtension = (input) => {
 
 	return output + '.md'
 }
+
+export const getHeader = (data) => {
+	const date = getFormattedDate(data.pubDate)
+
+	return `--- \n\n pubDate: ${date} \n title: ${data.title} \n image: ${data.image} \n\n --- \n\n`
+}

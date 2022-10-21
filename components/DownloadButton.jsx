@@ -1,17 +1,25 @@
 
 import { useState } from 'react';
 
-import { getExtension, INITIAL_FILE_NAME } from '../utils';
+import { getExtension, getHeader, INITIAL_FILE_NAME } from '../utils';
 
 import styles from '../styles/Home.module.css';
 
-const DownloadButton = ({ currentText }) => {
+const DownloadButton = ({ currentText, header }) => {
   const [fileName, setFileName] = useState(INITIAL_FILE_NAME);
   const [filenameToShow, setNameToShow] = useState('markdown-generator');
 
   const download = () => {
     const filename = fileName === '.md' ? INITIAL_FILE_NAME : fileName;
-    const file = new File([currentText], filename, {
+    let text = currentText;
+
+    if (header.active) {
+      const headerText = getHeader(header.data);
+
+      text = headerText + text;
+    }
+
+    const file = new File([text], filename, {
       type: 'text/plain',
     });
     const link = document.createElement('a')

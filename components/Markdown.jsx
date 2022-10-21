@@ -30,7 +30,7 @@ const Markdown = ({ header }) => {
           className={styles.markdown100}
           ref={textAreaRef}
         />
-        <DownloadButton currentText={currentText} />
+        <DownloadButton currentText={currentText} header={header} />
       </section>
       <div className={`${styles.markdown48} ${styles.markdownPreview}`}>
         <div>

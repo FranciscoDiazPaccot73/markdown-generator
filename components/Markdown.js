@@ -8,7 +8,7 @@ import { SAMPLE_TEXT } from '../utils';
 
 import styles from '../styles/Home.module.css';
 
-const Markdown = () => {
+const Markdown = ({ header }) => {
   const [currentText, setText] = useState(SAMPLE_TEXT)
   const textAreaRef = useRef();
   const copyTextRef = useRef();
@@ -33,9 +33,9 @@ const Markdown = () => {
         <DownloadButton currentText={currentText} />
       </section>
       <section className={`${styles.markdown48} ${styles.markdownPreview}`}>
-        <div satyle={{ position: "relative", width: "100%", height: "100%" }}>
+        <div>
           <span className={styles.markdownPreviewBadge}>LIVE PREVIEW</span>
-          <Preview text={currentText} />
+          <Preview text={currentText} header={header} />
         </div>
       </section>
     </div>

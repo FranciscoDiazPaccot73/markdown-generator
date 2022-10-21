@@ -43,8 +43,8 @@ const DownloadButton = ({ currentText }) => {
 
   return (
     <div className={styles.downloadButtonWrapper}>
-      <span>File name:</span>
       <div className={styles.fileName}>
+        <span>File name</span>
         <input value={filenameToShow} placeholder={filenameToShow} onChange={handleChange} />
       </div>
       <button onClick={download} className={styles.downloadButton}>
@@ -58,7 +58,7 @@ const DownloadButton = ({ currentText }) => {
             />
           </svg>
         </span>
-        Download File
+        Download
       </button>
     </div>
   )

@@ -36,6 +36,104 @@
   text-align: center;
 }
 
+.headerInfo {
+  background-color: #808080;
+  border-radius: 6px;
+  height: 54px;
+  margin-top: 3em;
+  max-width: 700px;
+  overflow: hidden;
+  transition: height 250ms ease-in;
+  width: 100%;
+}
+
+.headerInfo.active {
+  height: 108px;
+  transition: height 250ms ease-in;
+}
+
+.headerInfoTitle {
+  align-items: center;
+  background-color: #3b3b3b;
+  display: flex;
+  height: 54px;
+  justify-content: space-between;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.headerInfoContent {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px 12px;
+}
+
+.headerInfoContent div {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.headerInfoContent span {
+  font-size: 12px;
+}
+
+.switch {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 44px;
+}
+
+.switch input {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+.slider {
+  -webkit-transition: .4s;
+  background-color: #808080;
+  border-radius: 34px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  -webkit-transition: .4s;
+  background-color: white;
+  border-radius: 50%;
+  bottom: 4px;
+  content: "";
+  height: 16px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 16px;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
 /*MARKDOWN*/
 .markdownWrapper {
   display: flex;
@@ -52,6 +150,14 @@
 
 .markdown100 {
   width: 100%;
+}
+
+.markdownPreviewHeader {
+  margin-bottom: 32px;
+}
+
+.markdownPreviewContent {
+  padding: 8px;
 }
 
 .markdownActions {
@@ -110,6 +216,7 @@
   background-color: black;
   border-radius: 6px;
   border: 1px solid white;
+  color: white;
   font-size: 14px;
   left: 50%;
   padding: 2px 6px;
@@ -127,7 +234,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin: 16px 0 32px;
+  margin: 32px 0 40px;
 }
 
 .downloadButtonWrapper span {
@@ -149,6 +256,11 @@
   right: .5em;
   font-size: 14px;
   color: rgb(212, 212, 212);
+}
+
+.fileName span {
+  position: absolute;
+  top: -18px;
 }
 
 .copied {
@@ -174,5 +286,22 @@
 @media (max-width: 768px) {
   .main {
     padding: 4em 1em;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .headerInfoContent {
+    flex-direction: column;
+  }
+  .headerInfoContent span {
+    font-size: 14px;
+  }
+  .headerInfoContent div {
+    display: flex;
+    justify-content: space-between;
+    width: 246px;
+  }
+  .headerInfo.active {
+    height: 184px;
   }
 }

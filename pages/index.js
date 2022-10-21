@@ -1,12 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import Markdown from '../components/Markdown'
+import DocumentHeader from '../components/DocumentHeader'
+
+import { INITIAL_DATA } from '../utils';
 
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  
+  const [header, setHeader] = useState(INITIAL_DATA)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,8 +24,8 @@ export default function Home() {
         <h1 className={styles.title}>
           <strong>Markdown File Generator</strong>
         </h1>
-
-        <Markdown />
+        <DocumentHeader handleHeader={setHeader} header={header} />
+        <Markdown header={header} />
       </main>
 
       <footer className={styles.footer} id="footer">

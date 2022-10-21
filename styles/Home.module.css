@@ -11,19 +11,75 @@
 }
 
 .footer {
-  display: flex;
-  flex: 1;
+  border-top: 1px solid #808080;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
+.footerWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4em;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  row-gap: 32px;
+}
+
+.footerColumn {
+  grid-column: span 6 / span 6;
+}
+
+.footerColumn div {
+  font-weight: 600;
+  margin-bottom: 14px;
+  font-size: 18px;
+}
+
+.footerColumn ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footerColumn li {
+  margin: 0;
+  margin-bottom: 6px;
+  padding: 0;
+}
+
+.footerColumn li a:hover {
+  text-decoration-line: underline;
+}
+
+.footerDev {
   align-items: center;
-  flex-grow: 1;
+  display: flex;
+  font-size: 12px;
+  justify-content: flex-end;
+  margin-right: 16px;
+  padding: 32px 0 0;
+}
+
+.footerDev div {
+  display: flex;
+  gap: 6px;
+}
+
+.footerDev a {
+  font-weight: 600;
+}
+.footerDev a:hover {
+  text-decoration-line: underline;
+}
+
+.copyright {
+  align-items: center;
+  display: flex;
+  gap: 2px;
+  margin-left: 8px;
 }
 
 .title {
@@ -50,6 +106,11 @@
 .headerInfo.active {
   height: 108px;
   transition: height 250ms ease-in;
+}
+
+.headerActions {
+  display: flex;
+  gap: 20px;
 }
 
 .headerInfoTitle {
@@ -225,6 +286,10 @@ input:checked + .slider:before {
   transform: translateX(-50%);
 }
 
+.previewBadge {
+  display: none;
+}
+
 .downloadButton {
   cursor: pointer;
 }
@@ -272,6 +337,21 @@ input:checked + .slider:before {
   top: 38px;
 }
 
+@keyframes pulse {
+	0%{
+		opacity: 1;
+	}
+	33%{
+		opacity: .5;
+	}
+	66%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
 @media (max-width: 1100px) {
   .markdownWrapper {
     flex-direction: column;
@@ -290,11 +370,23 @@ input:checked + .slider:before {
   .title {
     font-size: 2rem;
   }
+  .headerInfoTitle {
+    padding: 0 12px;
+  }
+  .headerActions {
+    display: flex;
+    gap: 16px;
+  }
+  .previewBadge {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
   .headerInfoContent {
     flex-direction: column;
   }
   .headerInfoContent span {
     font-size: 14px;
+    display: inline-block;
   }
   .headerInfoContent div {
     display: flex;
@@ -303,5 +395,43 @@ input:checked + .slider:before {
   }
   .headerInfo.active {
     height: 184px;
+  }
+  .downloadButtonWrapper {
+    margin-bottom: 60px;
+  }
+  .footer {
+    padding-bottom: 0;
+  }
+  .footerWrapper {
+    padding: 0 1em;
+  }
+  .footerDev {
+    font-size: 10px;
+    padding: 40px 0 24px;
+  }
+  .footerContent {
+    gap: 32px;
+  }
+  .footerColumn {
+    grid-column: span 9 / span 9;
+  }
+  .previewBadge {
+    border-radius: 6px;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    padding: 4px 8px;
+    position: relative;
+    transition: 0.3s;
+    width: 126px;
+  }
+  .previewBadge .animateBadge:after {
+    content: '\01F534';
+    position: absolute;
+    top: 3px;
+    animation: pulse 1700ms infinite;
+    right: 4px;
   }
 }

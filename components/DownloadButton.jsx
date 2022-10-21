@@ -42,7 +42,7 @@ const DownloadButton = ({ currentText }) => {
   }
 
   return (
-    <div className={styles.downloadButtonWrapper}>
+    <div className={styles.downloadButtonWrapper} id="preview">
       <div className={styles.fileName}>
         <span>File name</span>
         <input value={filenameToShow} placeholder={filenameToShow} onChange={handleChange} />

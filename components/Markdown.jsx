@@ -32,12 +32,12 @@ const Markdown = ({ header }) => {
         />
         <DownloadButton currentText={currentText} />
       </section>
-      <section className={`${styles.markdown48} ${styles.markdownPreview}`}>
+      <div className={`${styles.markdown48} ${styles.markdownPreview}`}>
         <div>
           <span className={styles.markdownPreviewBadge}>LIVE PREVIEW</span>
           <Preview text={currentText} header={header} />
         </div>
-      </section>
+      </div>
     </div>
   )
 }

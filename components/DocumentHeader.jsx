@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 import { HEADER_NAMES, getFormattedDate } from '../utils';
 
@@ -22,10 +23,17 @@ const DocumentHeader = ({ header, handleHeader }) => {
     <section className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
       <div className={styles.headerInfoTitle}>
         <p>File Properties</p>
-        <label className={styles.switch}>
-          <input type="checkbox" onClick={handleCheckbox} />
-          <span className={styles.slider} />
-        </label>
+        <div className={styles.headerActions}>
+          <label className={styles.switch}>
+            <input type="checkbox" onClick={handleCheckbox} />
+            <span className={styles.slider} />
+          </label>
+          <Link href="/#preview">
+            <a className={styles.previewBadge}>
+              <span className={styles.animateBadge}>LIVE PREVIEW</span>
+            </a>
+          </Link>
+        </div>
       </div>
       <div className={styles.headerInfoContent}>
         {['pubDate', 'title', 'image'].map(id => (

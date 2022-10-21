@@ -12,7 +12,7 @@ const Preview = ({ text, header }) => {
   }
 
   return (
-    <article>
+    <div>
       {header.active ? (
         <header className={styles.markdownPreviewHeader}>
           <p className={styles.markdownTime}>
@@ -36,7 +36,7 @@ const Preview = ({ text, header }) => {
       <div className={styles.markdownPreviewContent}>
         <div dangerouslySetInnerHTML={renderText(text)} />
       </div>
-    </article>
+    </div>
   )
 }
 

@@ -28,7 +28,7 @@ const ActionsBar = ({ currentText, copyTextRef, textAreaRef }) => {
       <div onClick={handleText}><i id="list-ul" className='list-ul' /></div>
       <div onClick={handleText}><i id="link" className='link' /></div>
       <div style={{marginLeft: "auto" }} onClick={handleCopy}><i className='copy' /></div>
-      <Link href="/#footer"><a><i className='question' /></a></Link>
+      <Link href="/#documentation"><a><i className='question' /></a></Link>
     </div>
   )
 }

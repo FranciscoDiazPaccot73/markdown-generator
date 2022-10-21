@@ -45,4 +45,4 @@ Please refer to the contributing.md file for information about how to get involv
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to **[LICENSE](https://github.com/FranciscoDiazPaccot73/markdown-generator/blob/main/LICENCE)** for the full terms.
+This project is licensed under the terms of the MIT open source license. Please refer to **[LICENSE](https://github.com/FranciscoDiazPaccot73/markdown-generator/blob/main/LICENSE)** for the full terms.

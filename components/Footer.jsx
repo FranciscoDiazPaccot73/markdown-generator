@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import styles from '../styles/Home.module.css';
 
 const Footer = () => (
@@ -12,6 +14,17 @@ const Footer = () => (
           </li>
           <li>
             <a target="_blank" rel="noreferrer noopener" href="https://help.start.gg/en/articles/1987102-customizing-text-with-markdown">Custom Markdowns with HTML</a>
+          </li>
+        </ul>
+      </div>
+      <div className={styles.footerColumn}>
+        <div id="documentation">Other Formats</div>
+        <ul>
+          <li>
+            <Link href="/"> Markdown </Link>
+          </li>
+          <li>
+            <Link href="/json"> JSON </Link>
           </li>
         </ul>
       </div>

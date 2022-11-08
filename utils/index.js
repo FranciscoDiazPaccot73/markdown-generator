@@ -45,6 +45,7 @@ export const INITIAL_DATA = {
 }
 
 export const INITIAL_FILE_NAME = 'markdown-generator.md';
+export const INITIAL_FILE_NAME_JSON = 'markdown-generator.json';
 
 export const HEADER_NAMES = {
 	title: 'Title',
@@ -87,16 +88,55 @@ export const addTextFormat = (element, format) => {
 	element.setSelectionRange(curPos + newEl.slice, curPos + newEl.slice);
 }
 
-export const getExtension = (input) => {
+export const getExtension = (input, extension = 'md') => {
 	const output = input.substr(0, input.lastIndexOf('.')) || input;
 
 	if (output.includes('.')) return getExtension(output)
 
-	return output + '.md'
+	return output + `.${extension}`
 }
 
 export const getHeader = (data) => {
 	const date = getFormattedDate(data.pubDate)
 
 	return `--- \n\n pubDate: ${date} \n title: ${data.title} \n image: ${data.image} \n\n --- \n\n`
+}
+
+// JSON
+
+export const isArrayCheck = (arr) => {
+  const { value } = arr.find(item => item.id === 'isArray')
+
+  return value;
+}
+
+export const generateRandomID = () => Math.random().toString(16).slice(2);
+
+export const generateContentScaffolding = config => {
+  const scaffolding = [];
+  const newConfig = [...config.filter(c => c.type !== 'switch')];
+
+  newConfig.forEach(conf => {
+    const randomId = generateRandomID();
+    const newObj = {...conf, id: randomId}
+
+    scaffolding.push(newObj);
+  })
+
+	const scaffoldingObj = {
+		id: generateRandomID(),
+		components: scaffolding
+	}
+
+  return scaffoldingObj;
+}
+
+export const formatFile = (content, header) => {
+  const currentObj = {
+    config: header,
+    data: content
+  }
+
+  const currentFile = JSON.stringify(currentObj)
+  return currentFile;
 }

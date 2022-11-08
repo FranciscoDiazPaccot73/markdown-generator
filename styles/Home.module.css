@@ -179,7 +179,7 @@
   border-radius: 20px;
   border: 1px solid;
   font-size: 12px;
-  padding: 2px 24px 2px 8px;
+  padding: 2px 8px;
   text-align: center;
   position: relative;
 }
@@ -343,7 +343,16 @@ input:checked + .slider:before {
   position: relative;
 }
 
-.fileName::after {
+.downloadInputJson::after {
+  content: '.json';
+  position: absolute;
+  top: 3px;
+  right: .5em;
+  font-size: 14px;
+  color: rgb(212, 212, 212);
+}
+
+.downloadInputMd::after {
   content: '.md';
   position: absolute;
   top: 3px;
@@ -372,6 +381,70 @@ input:checked + .slider:before {
   margin-top: 4em;
   width: 100%;
   min-height: calc(100vh - 300px);
+}
+
+.jsonContent {
+  margin-bottom: 48px;
+}
+
+.jsonContent button {
+  cursor: pointer;
+}
+
+.jsonContentButton {
+  margin-top: 12px;
+}
+
+.jsonContentElems {
+  grid-template-columns: repeat(3, fit-content(100%));
+  display: grid;
+  gap: 3em;
+  justify-content: center;
+}
+
+.jsonContentInner {
+  padding: 30px 16px 20px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  position: relative;
+}
+
+.jsonContentInnerAction {
+  top: 4px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.closeAction {
+  padding: 2px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.closeActionArray {
+  height: 20px;
+  width: 20px;
+}
+
+.jsonContentString {
+  height: 48px;
+  padding: 0 12px;
+}
+
+.jsonContentArray {
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.jsonContentArrayElem {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 @keyframes pulse {
@@ -416,12 +489,18 @@ input:checked + .slider:before {
     display: flex;
     gap: 16px;
   }
+  .headerActions input {
+    max-width: 200px;
+  }
   .previewBadge {
     font-size: 12px;
     padding: 2px 6px;
   }
   .headerInfoContent {
     flex-direction: column;
+  }
+  .headerInfoContentJson {
+    flex-direction: row;
   }
   .headerInfoContent span {
     font-size: 14px;
@@ -438,6 +517,7 @@ input:checked + .slider:before {
   .downloadButtonWrapper {
     margin-bottom: 60px;
   }
+  
   .footer {
     padding-bottom: 0;
   }
@@ -472,5 +552,9 @@ input:checked + .slider:before {
     top: 3px;
     animation: pulse 1700ms infinite;
     right: 4px;
+  }
+
+  .jsonContentElems {
+    grid-template-columns: repeat(1, fit-content(100%));
   }
 }

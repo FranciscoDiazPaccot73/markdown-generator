@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Head from 'next/head'
 
 import Json from '../components/Json'
@@ -11,9 +11,13 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [fileContent, setFileContent] = useState({})
+  const FILE_NAME = useRef()
+  const STATIC_SCAFFOLDING = useRef()
 
-  const handleHeader = (config, data) => {
+  const handleHeader = (config, data, fileName) => {
     setFileContent({ config, data })
+    FILE_NAME.current = fileName
+    STATIC_SCAFFOLDING.current = [...config]
   }
 
   return (
@@ -43,7 +47,7 @@ export default function Home() {
         </h1>
         <DocumentHeader handleHeader={handleHeader} type='json' />
         <div className={styles.json}>
-          {fileContent.config && <Json content={fileContent.data} header={fileContent.config} />}
+          {fileContent.config && <Json originalHeader={STATIC_SCAFFOLDING.current} fileName={FILE_NAME.current} content={fileContent.data} header={fileContent.config} />}
         </div>
       </main>
       <Footer />

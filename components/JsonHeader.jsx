@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import jsonTypes, { SwitchType } from "./JsonHeaderTypes";
 
 import styles from '../styles/Home.module.css';
@@ -12,6 +12,7 @@ const defaultIsArray = {
 const JsonHeader = ({ handleHeader }) => {
   const [isActive, setIsActive] = useState(false)
   const [fileConfig, setFileConfig] = useState(null)
+  const FILE_NAME = useRef()
   const chevronClasses = `${styles.chevronDown} ${isActive ? `${styles.chevronActive}` : ''}`
 
   const handleChevron = (e) => {
@@ -21,13 +22,24 @@ const JsonHeader = ({ handleHeader }) => {
   const onReaderLoad = (event) => {
     var { config, data } = JSON.parse(event.target.result);
     setFileConfig(config)
-    handleHeader(config, data)
+    handleHeader(config, data, FILE_NAME.current)
   }
 
-  const handleFile = (e) => {
+  const handleFile = (file) => {
     const reader = new FileReader();
     reader.onload = onReaderLoad;
-    reader.readAsText(e.target.files[0]);
+    reader.readAsText(file);
+    FILE_NAME.current = file.name
+  }
+
+  const onChangeFile = e => {
+    e.preventDefault()
+    handleFile(e.target.files[0])
+  }
+
+  const handleDrop = e => {
+    e.preventDefault();
+    handleFile(e.dataTransfer.files[0])
   }
 
   const updateConfigs = (newValue, id) => {
@@ -51,12 +63,12 @@ const JsonHeader = ({ handleHeader }) => {
 
   return (
     <>
-      <section onDrop={handleFile} className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
+      <section onDrop={handleDrop} className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
         <div className={styles.headerInfoTitle}>
           <p>File config</p>
           <div className={styles.headerActions}>
             <input
-              onChange={handleFile}
+              onChange={onChangeFile}
               type="file"
               id="jsonfile" name="jsonfile"
               accept="application/JSON"
@@ -73,14 +85,13 @@ const JsonHeader = ({ handleHeader }) => {
             ) : null}
           </div>
         </div>
-        <div className={styles.headerInfoContent}>
+        <div className={`${styles.headerInfoContent} ${styles.headerInfoContentJson}`}>
           {fileConfig ? fileConfig.map(({ type, id, ...others }) => {
             const Component = jsonTypes(type)
             const props = {
               ...others,
               id,
               type,
-              onRemove: removeConfig,
               onAction: (value) => updateConfigs(value, id)
             }
 
@@ -92,7 +103,7 @@ const JsonHeader = ({ handleHeader }) => {
           )}
         </div>
       </section>
-      <button onClick={() => handleHeader(fileConfig, null)} >Use config</button>
+      {/*<button onClick={() => handleHeader(fileConfig, null)} >Use config</button>*/}
     </>
   )
 }

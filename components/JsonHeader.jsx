@@ -13,6 +13,7 @@ const JsonHeader = ({ handleHeader }) => {
   const [isActive, setIsActive] = useState(false)
   const [fileConfig, setFileConfig] = useState(null)
   const FILE_NAME = useRef()
+  const fileInput = useRef()
   const chevronClasses = `${styles.chevronDown} ${isActive ? `${styles.chevronActive}` : ''}`
 
   const handleChevron = (e) => {
@@ -55,14 +56,14 @@ const JsonHeader = ({ handleHeader }) => {
     setFileConfig(newArray)
   }
 
-  const removeConfig = (id) => {
-    const newArray = fileConfig.filter(conf => conf.id !== id)
-    
-    setFileConfig(newArray)
+  const removeFile = () => {
+    fileInput.current.value  = null;
+    setFileConfig([])
+    handleHeader([], [])
   }
 
   return (
-    <>
+    <div className={styles.headerInfoWrapper}>
       <section onDrop={handleDrop} className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
         <div className={styles.headerInfoTitle}>
           <p>File config</p>
@@ -72,6 +73,7 @@ const JsonHeader = ({ handleHeader }) => {
               type="file"
               id="jsonfile" name="jsonfile"
               accept="application/JSON"
+              ref={fileInput}
             />
             {fileConfig ? (
               <div className={chevronClasses} onClick={handleChevron}>
@@ -103,8 +105,10 @@ const JsonHeader = ({ handleHeader }) => {
           )}
         </div>
       </section>
-      {/*<button onClick={() => handleHeader(fileConfig, null)} >Use config</button>*/}
-    </>
+      <div className={`${styles.jsonNewFile} ${fileInput.current?.value ? `${styles.jsonNewFileButton}` : `${styles.jsonNewFileButtonHidden}`}`}>
+        <button onClick={removeFile}>New</button>
+      </div>
+    </div>
   )
 }
 

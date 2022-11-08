@@ -105,6 +105,14 @@
   width: 100%;
 }
 
+.headerInfoWrapper {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
+}
+
 .headerInfo.active {
   height: 108px;
   transition: height 250ms ease-in;
@@ -445,6 +453,32 @@ input:checked + .slider:before {
   gap: .5em;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.jsonNewFile {
+  margin-top: 3em;
+  height: 48px;
+  width: 46px;
+  overflow: hidden;
+  position: relative;
+}
+
+.jsonNewFile button {
+  cursor: pointer;
+  height: 48px;
+  position: absolute;
+}
+
+.jsonNewFileButton button {
+  right: 1px;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+
+.jsonNewFileButtonHidden button {
+  right: -80px;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
 }
 
 @keyframes pulse {

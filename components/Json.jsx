@@ -13,9 +13,11 @@ const Json = ({ content, header, fileName, originalHeader }) => {
   const [shouldDownload, setShouldDownload] = useState(false);
 
   const handleAdd = () => {
-    const scaffolding = generateContentScaffolding(originalHeader);
-    const newArray = [...localContent, scaffolding];
-    setContent(newArray)
+    if (originalHeader.length) {
+      const scaffolding = generateContentScaffolding(originalHeader);
+      const newArray = [...localContent, scaffolding];
+      setContent(newArray)
+    }
   }
 
   const handleChange = (values, type, id) => {

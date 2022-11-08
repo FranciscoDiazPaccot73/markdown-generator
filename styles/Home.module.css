@@ -105,6 +105,14 @@
   width: 100%;
 }
 
+.headerInfoWrapper {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
+}
+
 .headerInfo.active {
   height: 108px;
   transition: height 250ms ease-in;
@@ -155,6 +163,33 @@
   height: 0;
   opacity: 0;
   width: 0;
+}
+
+.chevronDown {
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 24px;
+  cursor: pointer;
+  -moz-transition: all 200ms linear;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.chevronActive {
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.stringType {
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 12px;
+  padding: 2px 8px;
+  text-align: center;
+  position: relative;
 }
 
 .slider {
@@ -316,7 +351,16 @@ input:checked + .slider:before {
   position: relative;
 }
 
-.fileName::after {
+.downloadInputJson::after {
+  content: '.json';
+  position: absolute;
+  top: 3px;
+  right: .5em;
+  font-size: 14px;
+  color: rgb(212, 212, 212);
+}
+
+.downloadInputMd::after {
   content: '.md';
   position: absolute;
   top: 3px;
@@ -337,6 +381,104 @@ input:checked + .slider:before {
   position: absolute;
   right: 12px;
   top: 38px;
+}
+
+/*JSON*/
+
+.json {
+  margin-top: 4em;
+  width: 100%;
+  min-height: calc(100vh - 300px);
+}
+
+.jsonContent {
+  margin-bottom: 48px;
+}
+
+.jsonContent button {
+  cursor: pointer;
+}
+
+.jsonContentButton {
+  margin-top: 12px;
+}
+
+.jsonContentElems {
+  grid-template-columns: repeat(3, fit-content(100%));
+  display: grid;
+  gap: 3em;
+  justify-content: center;
+}
+
+.jsonContentInner {
+  padding: 30px 16px 20px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  position: relative;
+}
+
+.jsonContentInnerAction {
+  top: 4px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.closeAction {
+  padding: 2px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.closeActionArray {
+  height: 20px;
+  width: 20px;
+}
+
+.jsonContentString {
+  height: 48px;
+  padding: 0 12px;
+}
+
+.jsonContentArray {
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+
+.jsonContentArrayElem {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.jsonNewFile {
+  margin-top: 3em;
+  height: 48px;
+  width: 46px;
+  overflow: hidden;
+  position: relative;
+}
+
+.jsonNewFile button {
+  cursor: pointer;
+  height: 48px;
+  position: absolute;
+}
+
+.jsonNewFileButton button {
+  right: 1px;
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+
+.jsonNewFileButtonHidden button {
+  right: -80px;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
 }
 
 @keyframes pulse {
@@ -381,12 +523,18 @@ input:checked + .slider:before {
     display: flex;
     gap: 16px;
   }
+  .headerActions input {
+    max-width: 200px;
+  }
   .previewBadge {
     font-size: 12px;
     padding: 2px 6px;
   }
   .headerInfoContent {
     flex-direction: column;
+  }
+  .headerInfoContentJson {
+    flex-direction: row;
   }
   .headerInfoContent span {
     font-size: 14px;
@@ -403,6 +551,7 @@ input:checked + .slider:before {
   .downloadButtonWrapper {
     margin-bottom: 60px;
   }
+  
   .footer {
     padding-bottom: 0;
   }
@@ -437,5 +586,9 @@ input:checked + .slider:before {
     top: 3px;
     animation: pulse 1700ms infinite;
     right: 4px;
+  }
+
+  .jsonContentElems {
+    grid-template-columns: repeat(1, fit-content(100%));
   }
 }

@@ -1,26 +1,36 @@
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-import { getExtension, getHeader, INITIAL_FILE_NAME } from '../utils';
+import { getExtension, getHeader, INITIAL_FILE_NAME, INITIAL_FILE_NAME_JSON } from '../utils';
 
 import styles from '../styles/Home.module.css';
 
-const DownloadButton = ({ currentText, header }) => {
-  const [fileName, setFileName] = useState(INITIAL_FILE_NAME);
-  const [filenameToShow, setNameToShow] = useState('markdown-generator');
+const getFileNameJSON = (name) => {
+  return name ?? INITIAL_FILE_NAME_JSON;
+};
+
+const DownloadButton = ({ currentText, header, type, fileN, startDownloading, shouldDownload }) => {
+  const INITIAL_NAME = useRef(type === 'json' ? getFileNameJSON(fileN) : INITIAL_FILE_NAME)
+  const EXTENSION_COMPARE = useRef(type === 'json' ? '.json' : '.md')
+  const [fileName, setFileName] = useState(type === 'json' ? getFileNameJSON(fileN) : INITIAL_FILE_NAME);
+  const [filenameToShow, setNameToShow] = useState(fileN ? fileN.substr(0, fileN.lastIndexOf('.')) || fileN : 'markdown-generator');
+
+  useEffect(() => {
+    if (shouldDownload) download()
+  }, [shouldDownload])
 
   const download = () => {
-    const filename = fileName === '.md' ? INITIAL_FILE_NAME : fileName;
+    const filename = fileName === EXTENSION_COMPARE.current ? INITIAL_NAME.current : fileName;
     let text = currentText;
 
-    if (header.active) {
+    if (header?.active) {
       const headerText = getHeader(header.data);
 
       text = headerText + text;
     }
 
     const file = new File([text], filename, {
-      type: 'text/plain',
+      type: type === 'json' ? 'application/json' : 'text/plain',
     });
     const link = document.createElement('a')
     const url = URL.createObjectURL(file)
@@ -36,11 +46,11 @@ const DownloadButton = ({ currentText, header }) => {
 
   const handleChange = (e) => {
     const { value } = e.target;
-    const newFilename = getExtension(value);
+    const newFilename = getExtension(value, type);
 
-    if (!newFilename || newFilename === '.md') {
+    if (!newFilename || newFilename === EXTENSION_COMPARE.current) {
       setNameToShow('')
-      setFileName(INITIAL_FILE_NAME)
+      setFileName(INITIAL_NAME.current)
     } else {
       setNameToShow(newFilename.substr(0, newFilename.lastIndexOf('.')) || newFilename)
       setFileName(newFilename);
@@ -49,11 +59,11 @@ const DownloadButton = ({ currentText, header }) => {
 
   return (
     <div className={styles.downloadButtonWrapper} id="preview">
-      <div className={styles.fileName}>
+      <div className={`${styles.fileName} ${type ? styles.downloadInputJson : styles.downloadInputMd}`}>
         <span>File name</span>
         <input value={filenameToShow} placeholder={filenameToShow} onChange={handleChange} />
       </div>
-      <button onClick={download} className={styles.downloadButton}>
+      <button onClick={startDownloading} className={styles.downloadButton}>
         <span>
           <svg fill="none" viewBox="0 0 24 24" height="16" width="16" stroke="currentColor">
             <path

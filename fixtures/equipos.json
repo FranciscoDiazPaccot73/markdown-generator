@@ -1,0 +1,28 @@
+{
+  "config": [
+    {
+      "type": "switch",
+      "id": "isArray",
+      "label": "Is array?",
+      "value": true
+    },
+    {
+      "type": "string",
+      "id": "name",
+      "label": "equipo"
+    },
+    {
+      "type": "array",
+      "id": "players",
+      "label": "jugadores",
+      "child": [
+        {
+          "type": "string",
+          "id": "names",
+          "label": "jugador"
+        }
+      ]
+    }
+  ],
+  "data": []
+}

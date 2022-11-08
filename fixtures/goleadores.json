@@ -1,0 +1,38 @@
+{
+  "config": [
+    {
+      "type": "switch",
+      "id": "isArray",
+      "label": "Is array?",
+      "value": true
+    },
+    {
+      "type": "array",
+      "id": "players",
+      "label": "jugadores",
+      "child": [
+        {
+          "type": "string",
+          "id": "name",
+          "label": "jugador"
+        },
+        {
+          "type": "string",
+          "id": "team",
+          "label": "equipo"
+        },
+        {
+          "type": "string",
+          "id": "games",
+          "label": "partidos"
+        },
+        {
+          "type": "string",
+          "id": "points",
+          "label": "puntos"
+        }
+      ]
+    }
+  ],
+  "data": []
+}

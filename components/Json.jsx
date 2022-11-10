@@ -111,7 +111,7 @@ const Json = ({ content, header, fileName, originalHeader }) => {
                     props = { ...props, subtype: elem.subtype }
                   }
 
-                  return <JsonContentArray {...props} />
+                  return <JsonContentArray key={elem.id} {...props} />
                 }
                 return null;
               })}

@@ -11,12 +11,12 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [fileContent, setFileContent] = useState({})
-  const FILE_NAME = useRef()
+  const [fileName, setFilename] = useState('')
   const STATIC_SCAFFOLDING = useRef()
 
   const handleHeader = (config, data, fileName) => {
     setFileContent({ config, data })
-    FILE_NAME.current = fileName
+    setFilename(fileName)
     STATIC_SCAFFOLDING.current = [...config]
   }
 
@@ -47,7 +47,7 @@ export default function Home() {
         </h1>
         <DocumentHeader handleHeader={handleHeader} type='json' />
         <div className={styles.json}>
-          {fileContent.config && <Json originalHeader={STATIC_SCAFFOLDING.current} fileName={FILE_NAME.current} content={fileContent.data} header={fileContent.config} />}
+          {fileContent.config && fileName && <Json originalHeader={STATIC_SCAFFOLDING.current} fileName={fileName} content={fileContent.data} header={fileContent.config} />}
         </div>
       </main>
       <Footer />

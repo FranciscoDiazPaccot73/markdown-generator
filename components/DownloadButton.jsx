@@ -1,7 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-import { getExtension, getHeader, INITIAL_FILE_NAME, INITIAL_FILE_NAME_JSON } from '../utils';
+import { getExtension, getHeader, INITIAL_FILE_NAME, INITIAL_FILE_NAME_JSON, generateRandomID } from '../utils';
 
 import styles from '../styles/Home.module.css';
 
@@ -33,11 +33,13 @@ const DownloadButton = ({ currentText, header, type, fileN, startDownloading, sh
       type: type === 'json' ? 'application/json' : 'text/plain',
     });
     const link = document.createElement('a')
+    link.id = generateRandomID()
     const url = URL.createObjectURL(file)
   
     link.href = url
     link.download = file.name
     document.body.appendChild(link)
+
     link.click()
   
     document.body.removeChild(link)

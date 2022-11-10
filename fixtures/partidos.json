@@ -1,0 +1,68 @@
+{
+  "config": [
+    {
+      "type": "switch",
+      "id": "isArray",
+      "label": "Is array?",
+      "value": true
+    },
+    {
+      "type": "columns",
+      "value": 2
+    },
+    {
+      "type": "string",
+      "id": "name",
+      "label": "Zona"
+    },
+    {
+      "type": "string",
+      "id": "date",
+      "label": "Fecha"
+    },
+    {
+      "type": "array",
+      "id": "equipos",
+      "label": "equipos",
+      "subtype": "single",
+      "limit": 2,
+      "child": [
+        {
+          "type": "double-string",
+          "id": "name",
+          "label": "Local",
+          "child": [
+            {
+              "type": "string",
+              "id": "team",
+              "label": "nombre"
+            },
+            {
+              "type": "string",
+              "id": "score",
+              "label": "puntos"
+            }
+          ]
+        },
+        {
+          "type": "double-string",
+          "id": "nameb",
+          "label": "Visitante",
+          "child": [
+            {
+              "type": "string",
+              "id": "teamb",
+              "label": "nombre"
+            },
+            {
+              "type": "string",
+              "id": "scoreb",
+              "label": "puntos"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "data": []
+}

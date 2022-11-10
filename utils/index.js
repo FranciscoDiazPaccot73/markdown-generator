@@ -118,7 +118,17 @@ export const generateContentScaffolding = config => {
 
   newConfig.forEach(conf => {
     const randomId = generateRandomID();
-    const newObj = {...conf, id: randomId}
+		const newObj = {...conf, id: randomId}
+		if (conf.type === 'array') {
+			const innerArray = []
+			newObj.child?.forEach(ch => {
+				const innerRandomId = generateRandomID();
+				const newObj = { ...ch, id: innerRandomId }
+				innerArray.push(newObj)
+			})
+
+			newObj.child = innerArray;
+		}
 
     scaffolding.push(newObj);
   })

@@ -58,6 +58,7 @@ const JsonHeader = ({ handleHeader }) => {
 
   const removeFile = () => {
     fileInput.current.value  = null;
+    FILE_NAME.current = null;
     setFileConfig([])
     handleHeader([], [])
   }
@@ -105,7 +106,7 @@ const JsonHeader = ({ handleHeader }) => {
           )}
         </div>
       </section>
-      <div className={`${styles.jsonNewFile} ${fileInput.current?.value ? `${styles.jsonNewFileButton}` : `${styles.jsonNewFileButtonHidden}`}`}>
+      <div className={`${styles.jsonNewFile} ${fileInput.current?.value || FILE_NAME.current ? `${styles.jsonNewFileButton}` : `${styles.jsonNewFileButtonHidden}`}`}>
         <button onClick={removeFile}>New</button>
       </div>
     </div>

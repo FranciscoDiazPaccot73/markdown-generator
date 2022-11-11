@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 import { JsonContentString, JsonContentArray } from './JsonContentTypes';
 import DownloadButton from './DownloadButton';
@@ -12,7 +12,6 @@ const Json = ({ content, fileName, configHeader, generateNewElem }) => {
   const [loading, setLoading] = useState(false);
   const [shouldDownload, setShouldDownload] = useState(false);
   const contentElemsRef = useRef()
-
 
   const handleAdd = () => {
     const newArray = generateNewElem(localContent);
@@ -117,7 +116,7 @@ const Json = ({ content, fileName, configHeader, generateNewElem }) => {
         </div>
         <button className={styles.jsonContentButton} onClick={handleAdd}>Add</button>
       </div>
-      {/*<DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, header)} type="json" />*/}
+      <DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, header)} type="json" />
       {loading ? <span style={{ width: "100%", marginTop: "40px", display: "flex", justifyContent: "center" }}>Loading...</span> : null}
     </div>
   )

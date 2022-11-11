@@ -1,23 +1,28 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 
 import Json from '../components/Json'
 import DocumentHeader from '../components/DocumentHeader'
 import Footer from '../components/Footer'
 
-import { JSON_META_TAGS } from '../utils';
+import { JSON_META_TAGS, generateContentScaffolding } from '../utils';
 
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const [fileContent, setFileContent] = useState({})
+  const [fileContent, setFileContent] = useState([])
+  const [fileHeader, setFileHeader] = useState([])
   const [fileName, setFilename] = useState('')
-  const STATIC_SCAFFOLDING = useRef()
 
   const handleHeader = (config, data, fileName) => {
-    setFileContent({ config, data })
+    setFileContent(data)
+    setFileHeader(config)
     setFilename(fileName)
-    STATIC_SCAFFOLDING.current = [...config]
+  }
+
+  const generateNewElem = (content) => {
+    const scaffolding = generateContentScaffolding([...fileHeader]);
+    return [...content, scaffolding];
   }
 
   return (
@@ -47,7 +52,7 @@ export default function Home() {
         </h1>
         <DocumentHeader handleHeader={handleHeader} type='json' />
         <div className={styles.json}>
-          {fileContent.config && fileName && <Json originalHeader={STATIC_SCAFFOLDING.current} fileName={fileName} content={fileContent.data} header={fileContent.config} />}
+          {fileName && <Json generateNewElem={generateNewElem} fileName={fileName} content={fileContent} configHeader={fileHeader} />}
         </div>
       </main>
       <Footer />

@@ -3,24 +3,20 @@ import { useState, useRef, useEffect } from 'react';
 import { JsonContentString, JsonContentArray } from './JsonContentTypes';
 import DownloadButton from './DownloadButton';
 
-import { formatFile, generateContentScaffolding } from '../utils';
+import { formatFile } from '../utils';
 
 import styles from '../styles/Home.module.css';
 
-const Json = ({ content, header, fileName, originalHeader }) => {
+const Json = ({ content, fileName, configHeader, generateNewElem }) => {
   const [localContent, setContent] = useState(content);
   const [loading, setLoading] = useState(false);
   const [shouldDownload, setShouldDownload] = useState(false);
   const contentElemsRef = useRef()
 
-  useEffect(() => {
-    forceRender()
-  }, [fileName])
 
   const handleAdd = () => {
-    if (originalHeader.length) {
-      const scaffolding = generateContentScaffolding(originalHeader);
-      const newArray = [...localContent, scaffolding];
+    const newArray = generateNewElem(localContent);
+    if (newArray.length) {
       setContent(newArray)
     }
   }
@@ -104,6 +100,7 @@ const Json = ({ content, header, fileName, originalHeader }) => {
                     onRemove: value => handleRemove(value, elem.type, elem.id),
                     onChange: value => handleChange(value, elem.type, elem.id),
                     limit: elem.limit,
+                    configHeader,
                     onAdd: value => handleAddChild(value, elem.type, elem.id),
                   }
 
@@ -120,7 +117,7 @@ const Json = ({ content, header, fileName, originalHeader }) => {
         </div>
         <button className={styles.jsonContentButton} onClick={handleAdd}>Add</button>
       </div>
-      <DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, header)} type="json" />
+      {/*<DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, header)} type="json" />*/}
       {loading ? <span style={{ width: "100%", marginTop: "40px", display: "flex", justifyContent: "center" }}>Loading...</span> : null}
     </div>
   )

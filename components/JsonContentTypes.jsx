@@ -21,14 +21,14 @@ export const JsonContentString = ({label, onChange, w, value}) => {
   )
 }
 
-export const JsonContentDoubleString = ({label, onChange, others}) => {
+export const JsonContentDoubleString = ({ label, onChange, others }) => {
   const [inputs, setText] = useState(others)
 
   const handleChange = (value, id) => {
     const newChilds = []
     inputs.forEach(element => {
-      const newObj = element;
-      if (id === element.id) {
+      const newObj = {...element};
+      if (id === newObj.id) {
         newObj.value = value
       }
 
@@ -48,7 +48,7 @@ export const JsonContentDoubleString = ({label, onChange, others}) => {
   )
 }
 
-export const JsonContentArray = ({ onChange, others, label, onRemove, limit, subtype, onAdd }) => {
+export const JsonContentArray = ({ configHeader, onChange, others, label, onRemove, limit, subtype, onAdd }) => {
   const [localElems, setElems] = useState(others)
   const [count, setCount] = useState(1)
 
@@ -58,6 +58,7 @@ export const JsonContentArray = ({ onChange, others, label, onRemove, limit, sub
       const newObj = element;
       if (id === element.id) {
         newObj.value = value
+        newObj.child = value
       }
 
       newChilds.push(newObj);
@@ -89,7 +90,7 @@ export const JsonContentArray = ({ onChange, others, label, onRemove, limit, sub
         if ('double-string' === el.type) {
           return (
             <div key={el.id} className={styles.jsonContentArrayElem} style={{ marginBottom: '16px', marginTop: "16px" }}>
-              <JsonContentDoubleString others={el.child} label={el.label} onChange={(val) => handleChange(val, el.id)} />
+              <JsonContentDoubleString configHeader={configHeader} others={el.child} label={el.label} onChange={(val) => handleChange(val, el.id)} />
             </div>
           )
         }

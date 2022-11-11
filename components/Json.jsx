@@ -116,7 +116,7 @@ const Json = ({ content, fileName, configHeader, generateNewElem }) => {
         </div>
         <button className={styles.jsonContentButton} onClick={handleAdd}>Add</button>
       </div>
-      <DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, header)} type="json" />
+      <DownloadButton fileN={fileName} startDownloading={handleStartDownload} shouldDownload={shouldDownload} currentText={formatFile(localContent, configHeader)} type="json" />
       {loading ? <span style={{ width: "100%", marginTop: "40px", display: "flex", justifyContent: "center" }}>Loading...</span> : null}
     </div>
   )

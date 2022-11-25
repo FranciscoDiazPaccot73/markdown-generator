@@ -2,20 +2,28 @@ import Link from 'next/link';
 
 import styles from '../styles/Home.module.css';
 
-const Footer = () => (
+const Footer = ({ type }) => (
   <footer className={styles.footer}>
     <div className={styles.footerWrapper}>
     <div className={styles.footerContent}>
       <div className={styles.footerColumn}>
         <div id="documentation">Documentation</div>
-        <ul>
-          <li>
-            <a target="_blank" rel="noreferrer noopener" href="https://www.markdownguide.org/basic-syntax/">Markdown Basic Syntax</a>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer noopener" href="https://help.start.gg/en/articles/1987102-customizing-text-with-markdown">Custom Markdowns with HTML</a>
-          </li>
-        </ul>
+        {type && type === 'json' ? (
+          <ul>
+            <li>
+              <a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON#:~:text=JavaScript%20Object%20Notation%20(JSON)%20is,page%2C%20or%20vice%20versa).">JSON Basic Syntax</a>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <a target="_blank" rel="noreferrer noopener" href="https://www.markdownguide.org/basic-syntax/">Markdown Basic Syntax</a>
+            </li>
+            <li>
+              <a target="_blank" rel="noreferrer noopener" href="https://help.start.gg/en/articles/1987102-customizing-text-with-markdown">Custom Markdowns with HTML</a>
+            </li>
+          </ul>
+        )}
       </div>
       <div className={styles.footerColumn}>
         <div id="documentation">Other Formats</div>

@@ -9,7 +9,12 @@
     {
       "type": "string",
       "id": "name",
-      "label": "equipo"
+      "label": "Equipo"
+    },
+    {
+      "type": "string",
+      "id": "zone",
+      "label": "Zona"
     },
     {
       "type": "array",
@@ -19,7 +24,7 @@
         {
           "type": "string",
           "id": "names",
-          "label": "jugador"
+          "label": "Jugador"
         }
       ]
     }

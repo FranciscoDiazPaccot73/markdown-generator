@@ -12,6 +12,7 @@ const defaultIsArray = {
 const JsonHeader = ({ handleHeader }) => {
   const [isActive, setIsActive] = useState(false)
   const [fileConfig, setFileConfig] = useState(null)
+  const [configOpened, setConfigOpened] = useState(false)
   const FILE_NAME = useRef()
   const fileInput = useRef()
   const chevronClasses = `${styles.chevronDown} ${isActive ? `${styles.chevronActive}` : ''}`
@@ -65,6 +66,7 @@ const JsonHeader = ({ handleHeader }) => {
 
   return (
     <div className={styles.headerInfoWrapper}>
+      <button onClick={() => setConfigOpened(prev => !prev)} className={styles.headerInfoWrapperButton}>{configOpened ? "Cerrar" : "Nueva Estructura"}</button>
       <section onDrop={handleDrop} className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
         <div className={styles.headerInfoTitle}>
           <p>File config</p>
@@ -106,6 +108,7 @@ const JsonHeader = ({ handleHeader }) => {
           )}
         </div>
       </section>
+      <div className={`${styles.headerInfoWrapperStructure} ${configOpened ? `${styles.open}` : ''}`}></div>
       <div className={`${styles.jsonNewFile} ${fileInput.current?.value || FILE_NAME.current ? `${styles.jsonNewFileButton}` : `${styles.jsonNewFileButtonHidden}`}`}>
         <button onClick={removeFile}>New</button>
       </div>

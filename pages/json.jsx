@@ -55,7 +55,7 @@ export default function Home() {
           {fileName && <Json generateNewElem={generateNewElem} fileName={fileName} content={fileContent} configHeader={fileHeader} />}
         </div>
       </main>
-      <Footer />
+      <Footer type="json" />
     </div>
   )
 }

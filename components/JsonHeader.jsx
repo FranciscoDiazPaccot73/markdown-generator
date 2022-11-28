@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
+
 import jsonTypes, { SwitchType } from "./JsonHeaderTypes";
+import FileConfig from "./FileConfig";
 
 import styles from '../styles/Home.module.css';
 
@@ -46,7 +48,11 @@ const JsonHeader = ({ handleHeader }) => {
 
   const updateConfigs = (newValue, id) => {
     const newArray = [];
-    fileConfig.forEach(conf => {
+    if (!fileConfig) {
+      newArray.push(newValue)
+    }
+
+    fileConfig?.forEach(conf => {
       if (conf.id === id) {
         newArray.push(newValue)
       } else {
@@ -66,7 +72,7 @@ const JsonHeader = ({ handleHeader }) => {
 
   return (
     <div className={styles.headerInfoWrapper}>
-      <button onClick={() => setConfigOpened(prev => !prev)} className={styles.headerInfoWrapperButton}>{configOpened ? "Cerrar" : "Nueva Estructura"}</button>
+      <button onClick={() => setConfigOpened(prev => !prev)} className={styles.headerInfoWrapperButton}>{configOpened ? "Cancelar" : "Nueva Estructura"}</button>
       <section onDrop={handleDrop} className={`${styles.headerInfo} ${isActive ? styles.active : ''}`}>
         <div className={styles.headerInfoTitle}>
           <p>File config</p>
@@ -108,9 +114,9 @@ const JsonHeader = ({ handleHeader }) => {
           )}
         </div>
       </section>
-      <div className={`${styles.headerInfoWrapperStructure} ${configOpened ? `${styles.open}` : ''}`}></div>
+      <FileConfig updateConfigs={updateConfigs} configOpened={configOpened} />
       <div className={`${styles.jsonNewFile} ${fileInput.current?.value || FILE_NAME.current ? `${styles.jsonNewFileButton}` : `${styles.jsonNewFileButtonHidden}`}`}>
-        <button onClick={removeFile}>New</button>
+        <button onClick={removeFile}>Clear</button>
       </div>
     </div>
   )

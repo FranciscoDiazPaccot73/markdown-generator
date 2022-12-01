@@ -19,6 +19,10 @@ const DownloadButton = ({ currentText, header, type, fileN, startDownloading, sh
     if (shouldDownload) download()
   }, [shouldDownload])
 
+  const startDownload = () => {
+    return type === 'json' ? startDownloading() : download()
+  }
+
   const download = () => {
     const filename = fileName === EXTENSION_COMPARE.current ? INITIAL_NAME.current : fileName;
     let text = currentText;
@@ -65,7 +69,7 @@ const DownloadButton = ({ currentText, header, type, fileN, startDownloading, sh
         <span>File name</span>
         <input value={filenameToShow} placeholder={filenameToShow} onChange={handleChange} />
       </div>
-      <button onClick={startDownloading} className={styles.downloadButton}>
+      <button onClick={startDownload} className={styles.downloadButton}>
         <span>
           <svg fill="none" viewBox="0 0 24 24" height="16" width="16" stroke="currentColor">
             <path

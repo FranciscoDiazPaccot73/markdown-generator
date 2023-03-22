@@ -17,7 +17,7 @@ const Markdown = ({ header }) => {
     const newText = event.target.value
     setText(newText)
   }
-  
+
   return (
     <div className={styles.markdownWrapper}>
       <section className={styles.markdown48}>

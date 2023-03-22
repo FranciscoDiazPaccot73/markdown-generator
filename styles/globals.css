@@ -1,3 +1,12 @@
+:root {
+  --primary: #041b31;
+  --secondary: #133B5C;
+  --main: #1E5F74;
+  --gold: #ECB365;
+  --gold-70: #ECB36570;
+  --primary-disabled: #041b3150;
+}
+
 html,
 body {
   padding: 0;
@@ -12,7 +21,7 @@ html {
 }
 body {
   color: white;
-  background: black;
+  background: var(--primary);
 }
 
 a {

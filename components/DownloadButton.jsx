@@ -80,7 +80,7 @@ const DownloadButton = ({ currentText, header, type, fileN, startDownloading, sh
             />
           </svg>
         </span>
-        Download
+        DOWNLOAD
       </button>
     </div>
   )

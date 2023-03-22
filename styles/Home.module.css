@@ -11,7 +11,7 @@
 }
 
 .footer {
-  border-top: 1px solid #808080;
+  border-top: 1px solid var(--gold-70);
   padding: 2rem 0;
 }
 
@@ -30,6 +30,10 @@
 
 .footerColumn {
   grid-column: span 6 / span 6;
+}
+
+.footerTitle {
+  color: var(--gold);
 }
 
 .footerColumn div {
@@ -83,19 +87,24 @@
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-  text-align: center;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  gap: 12px;
+  color: var(--gold);
   display: flex;
+  font-size: 2.5rem;
+  gap: 12px;
+  justify-content: center;
+  line-height: 1.15;
+  margin: 0;
+  text-align: center;
+  text-align: center;
+}
+
+.titleBig {
+  font-size: 4rem;
 }
 
 .headerInfo {
-  background-color: #808080;
+  background-color: var(--main);
   border-radius: 6px;
   height: 54px;
   margin-top: 3em;
@@ -154,7 +163,7 @@
 }
 
 .headerInfo.active {
-  height: 150px;
+  height: 118px;
   transition: height 250ms ease-in;
 }
 
@@ -165,7 +174,7 @@
 
 .headerInfoTitle {
   align-items: center;
-  background-color: #3b3b3b;
+  background-color: var(--secondary);
   display: flex;
   height: 54px;
   justify-content: space-between;
@@ -190,6 +199,22 @@
 
 .headerInfoContent span {
   font-size: 12px;
+}
+
+.headerInfoContent input {
+  border-radius: 20px;
+  outline: none;
+  height: 32px;
+  padding: 0 12px;
+  width: 160px;
+  background-color: var(--primary);
+  border: none;
+}
+
+.headerInfoContent input:read-only {
+  background-color: var(--primary-disabled);
+  border: 1px dashed var(--primary);
+  color: #cac9c9;
 }
 
 .switch {
@@ -234,7 +259,7 @@
 
 .slider {
   -webkit-transition: .4s;
-  background-color: #808080;
+  background-color: var(--gold-70);
   border: 1px solid black;
   border-radius: 34px;
   bottom: 0;
@@ -249,8 +274,9 @@
 .slider:before {
   -webkit-transition: .4s;
   background-color: white;
+  border: 1px solid var(--main);
   border-radius: 50%;
-  bottom: 4px;
+  bottom: 2px;
   content: "";
   height: 16px;
   left: 4px;
@@ -260,17 +286,17 @@
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: var(--gold);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 0 1px var(--gold);
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
 }
 
 /*MARKDOWN*/
@@ -289,6 +315,12 @@ input:checked + .slider:before {
 
 .markdown100 {
   width: 100%;
+  outline: none;
+  border: 1px solid var(--gold);
+  background-color: var(--primary);
+  padding: 4px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .markdownPreviewHeader {
@@ -301,10 +333,10 @@ input:checked + .slider:before {
 
 .markdownActions {
   align-items: center;
-  background-color: gray;
+  background-color: var(--secondary);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border: 1px solid white;
+  border: 1px solid var(--gold);
   border-bottom: none;
   display: flex;
   height: 32px;
@@ -345,16 +377,16 @@ input:checked + .slider:before {
 }
 
 .markdownPreview {
-  border: 1px solid white;
+  border: 1px solid var(--gold);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding-top: 20px;
 }
 
 .markdownPreviewBadge {
-  background-color: black;
+  background-color: var(--primary);
   border-radius: 6px;
-  border: 1px solid white;
+  border: 1px solid var(--gold);
   color: white;
   font-size: 14px;
   left: 50%;
@@ -369,7 +401,21 @@ input:checked + .slider:before {
 }
 
 .downloadButton {
+  align-items: center;
+  background-color: var(--gold);
+  border-radius: 20px;
+  border: none;
+  color: var(--primary);
   cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  height: 40px;
+  outline: none;
+  padding: 4px 16px;
+}
+
+.downloadButton:hover {
+  background-color: var(--gold-70);
 }
 
 .downloadButtonWrapper {
@@ -402,17 +448,28 @@ input:checked + .slider:before {
 }
 
 .downloadInputMd::after {
+  color: #ffffff85;
   content: '.md';
-  position: absolute;
-  top: 3px;
-  right: .5em;
   font-size: 14px;
-  color: rgb(212, 212, 212);
+  position: absolute;
+  right: 1em;
+  top: 9px;
 }
 
 .fileName span {
   position: absolute;
   top: -18px;
+  left: 10px;
+}
+
+.fileName input {
+  border: none;
+  outline: none;
+  height: 40px;
+  padding: 2px 38px 2px 12px;
+  border-radius: 20px;
+  background-color: var(--primary);
+  border: 2px solid var(--main);
 }
 
 .copied {
@@ -570,9 +627,6 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
   }
-  .title {
-    flex-direction: column;
-  }
   .markdown48 {
     width: 100%;
   }
@@ -583,12 +637,18 @@ input:checked + .slider:before {
     padding: 2em 1em;
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
+  
+  .titleBig {
+    font-size: 2rem;
+  }
+
   .headerInfoTitle {
     padding: 0 12px;
   }
   .headerActions {
+    align-items: center;
     display: flex;
     gap: 16px;
   }
@@ -614,10 +674,15 @@ input:checked + .slider:before {
   .headerInfoContent div {
     display: flex;
     justify-content: space-between;
-    width: 246px;
+    width: 275px;
   }
+
+  .headerInfoContent input {
+    height: 28px;
+  }
+
   .headerInfo.active {
-    height: 184px;
+    height: 202px;
   }
   .downloadButtonWrapper {
     margin-bottom: 60px;
@@ -670,5 +735,19 @@ input:checked + .slider:before {
   }
   .jsonContentDoubleString input {
     max-width: 150px;
+  }
+
+  .fileName input {
+    height: 32px;
+    width: 192px;
+  }
+
+  .downloadInputMd::after {
+    top: 6px;
+  }
+  
+  .downloadButton {
+    height: 32px;
+    padding: 2px 10px;
   }
 }

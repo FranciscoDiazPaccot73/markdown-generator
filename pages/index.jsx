@@ -37,7 +37,11 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>
           <Image src="/markdown.png" priority width={80} height={80} />
-          <strong>Markdown File Generator</strong>
+          <div>
+            <strong className={styles.titleBig}>Markdown</strong>
+            <br />
+            <strong>File Generator</strong>
+          </div>
         </h1>
         <DocumentHeader handleHeader={setHeader} header={header} />
         <Markdown header={header} />

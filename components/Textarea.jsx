@@ -90,7 +90,7 @@ const Textarea = () => {
         {!currentText ? (
           <div className={styles.dropZoneWrapper}>
             <div className={styles.dropZone}>
-              Type your minified file or paste it here to find your issue!
+              Paste or drop your minified file here to start.
             </div>
           </div>
         ) : null}

@@ -46,7 +46,7 @@ export default function Home() {
         <DocumentHeader handleHeader={setHeader} header={header} />
         <Markdown header={header} />
       </main>
-      <Footer />
+      <Footer type='markdown' />
     </div>
   )
 }

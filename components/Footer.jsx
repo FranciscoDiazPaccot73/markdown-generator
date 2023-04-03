@@ -6,30 +6,36 @@ const Footer = ({ type }) => (
   <footer className={styles.footer}>
     <div className={styles.footerWrapper}>
     <div className={styles.footerContent}>
-      <div className={styles.footerColumn}>
-        <div className={styles.footerTitle} id="documentation">Documentation</div>
-        {type && type === 'json' ? (
-          <ul>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON#:~:text=JavaScript%20Object%20Notation%20(JSON)%20is,page%2C%20or%20vice%20versa).">JSON Basic Syntax</a>
-            </li>
-          </ul>
-        ) : (
-          <ul>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" href="https://www.markdownguide.org/basic-syntax/">Markdown Basic Syntax</a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" href="https://help.start.gg/en/articles/1987102-customizing-text-with-markdown">Custom Markdowns with HTML</a>
-            </li>
-          </ul>
-        )}
-      </div>
+      {type ? (
+        <div className={styles.footerColumn}>
+          <div className={styles.footerTitle} id="documentation">Documentation</div>
+          {type === 'json' ? (
+            <ul>
+              <li>
+                <a target="_blank" rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON#:~:text=JavaScript%20Object%20Notation%20(JSON)%20is,page%2C%20or%20vice%20versa).">JSON Basic Syntax</a>
+              </li>
+            </ul>
+          ) : null}
+          {type === 'markdown' ? (
+            <ul>
+              <li>
+                <a target="_blank" rel="noreferrer noopener" href="https://www.markdownguide.org/basic-syntax/">Markdown Basic Syntax</a>
+              </li>
+              <li>
+                <a target="_blank" rel="noreferrer noopener" href="https://help.start.gg/en/articles/1987102-customizing-text-with-markdown">Custom Markdowns with HTML</a>
+              </li>
+            </ul>
+          ) : null}
+        </div>
+      ) : null}
       <div className={styles.footerColumn}>
         <div className={styles.footerTitle} id="documentation">Other Formats</div>
         <ul>
           <li>
             <Link href="/"> Markdown </Link>
+          </li>
+          <li>
+            <Link href="/minified-finder"> Minified Finder </Link>
           </li>
           <li>
             <Link href="/json"> JSON </Link>

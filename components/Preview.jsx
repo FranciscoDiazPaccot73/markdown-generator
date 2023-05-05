@@ -1,5 +1,5 @@
+import { marked } from 'marked';
 import Image from 'next/image';
-import { marked } from 'marked'
 
 import { getFormattedDate } from '../utils';
 
@@ -28,6 +28,7 @@ const Preview = ({ text, header }) => {
                 width={500}
                 height={180}
                 layout="responsive"
+                alt="Markdown Hero image"
               />
             </div>
           )}

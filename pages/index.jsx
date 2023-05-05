@@ -1,12 +1,12 @@
-import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 
-import Markdown from '../components/Markdown'
 import DocumentHeader from '../components/DocumentHeader'
 import Footer from '../components/Footer'
+import Markdown from '../components/Markdown'
 
-import { INITIAL_DATA, META_TAGS } from '../utils';
+import { INITIAL_DATA, META_TAGS } from '../utils'
 
 import styles from '../styles/Home.module.css'
 
@@ -36,7 +36,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <Image src="/markdown.png" priority width={80} height={80} />
+          <Image src="/markdown.png" priority width={80} height={80} alt="Markdown generator Logo" />
           <div>
             <strong className={styles.titleBig}>Markdown</strong>
             <br />

@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 
-import Textarea from '../components/Textarea'
-import DocumentHeader from '../components/DocumentHeader'
 import Footer from '../components/Footer'
+import Textarea from '../components/Textarea'
 
-import { INITIAL_DATA, MINIFIED_META_TAGS } from '../utils';
+import { INITIAL_DATA, MINIFIED_META_TAGS } from '../utils'
 
 import styles from '../styles/Home.module.css'
 
@@ -36,7 +35,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <Image src="/markdown.png" priority width={80} height={80} />
+          <Image src="/markdown.png" priority width={80} height={80} alt="Markdown generator Logo" />
           <div>
             <strong className={styles.titleBig}>Minified Finder</strong>
           </div>
